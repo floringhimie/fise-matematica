@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fișe de matematică – Aventuri cu numere</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff; --page:#eef4fb; --grid:#d6e4f2; --margin:#ec6b6b;
+  --ink:#1d3577; --soft:#5a6b94; --sun:#f6c33b; --leaf:#2f9e64; --leaf-bg:#e2f6ea;
+  --oops:#e07a1f; --oops-bg:#fff0e0; --box:#ffffff; --box-line:#9fb4d6;
+  --btn:#1d3577; --btn-ink:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#1a2238; --page:#111729; --grid:#26314f; --margin:#b45252;
+    --ink:#e6ecff; --soft:#a6b3d6; --sun:#f6c33b; --leaf:#5fd497; --leaf-bg:#183a2a;
+    --oops:#ffab5e; --oops-bg:#3a2a18; --box:#222c48; --box-line:#4a5a86;
+    --btn:#f6c33b; --btn-ink:#1a2238;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#1a2238; --page:#111729; --grid:#26314f; --margin:#b45252;
+  --ink:#e6ecff; --soft:#a6b3d6; --sun:#f6c33b; --leaf:#5fd497; --leaf-bg:#183a2a;
+  --oops:#ffab5e; --oops-bg:#3a2a18; --box:#222c48; --box-line:#4a5a86;
+  --btn:#f6c33b; --btn-ink:#1a2238;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--page);color:var(--ink);font-family:"Fredoka",system-ui,"Segoe UI",Arial,sans-serif;font-size:18px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--page)}
+
+header{text-align:center;padding:28px 16px 8px}
+h1{font-size:clamp(28px,6vw,44px);font-weight:700;margin:0;letter-spacing:-.5px}
+.intro{color:var(--soft);margin:6px auto 0;max-width:34em}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--page);padding:10px 12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+nav a{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);background:var(--paper);border:2px solid var(--box-line);border-radius:999px;padding:6px 14px;font-weight:500;font-size:16px}
+nav a .star{opacity:.25;transition:opacity .3s}
+nav a.done{border-color:var(--leaf)}
+nav a.done .star{opacity:1}
+.tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:4px 12px 16px}
+
+button{font:inherit;cursor:pointer;border:none;border-radius:14px;padding:10px 20px;font-weight:600;background:var(--btn);color:var(--btn-ink);font-size:17px}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--box-line)}
+button:focus-visible,input:focus-visible,nav a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+main{max-width:820px;margin:0 auto;padding:0 12px 60px}
+
+/* Pagina de caiet de matematică */
+.sheet{position:relative;background:var(--paper);margin:0 0 32px;border-radius:6px;padding:28px 22px 26px 64px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:22px 22px;box-shadow:0 2px 0 var(--box-line)}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;background:var(--margin)}
+.sheet-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.mascot{font-size:52px;line-height:1}
+.sheet h2{margin:0;font-size:clamp(24px,4.5vw,32px);font-weight:700}
+.task{margin:4px 0 18px;color:var(--soft);font-size:18px}
+.name-line{font-family:"Patrick Hand","Comic Sans MS",cursive;color:var(--soft);font-size:18px;margin:-4px 0 14px}
+
+input.ans{width:2.4em;height:1.9em;font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:30px;text-align:center;color:var(--ink);
+  background:var(--box);border:3px dashed var(--box-line);border-radius:10px;padding:0;vertical-align:middle}
+input.ans.ok{border:3px solid var(--leaf);background:var(--leaf-bg)}
+input.ans.bad{border:3px solid var(--oops);background:var(--oops-bg);animation:wobble .35s}
+@keyframes wobble{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){input.ans.bad{animation:none}.rocket{transition:none!important}.beam{transition:none!important}}
+
+.eq{font-size:30px;font-weight:600;white-space:nowrap}
+.grid-eq{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px 24px}
+
+.feedback{min-height:1.6em;margin:16px 0 0;font-weight:600;font-size:19px}
+.feedback.win{color:var(--leaf)}
+.feedback.try{color:var(--oops)}
+.actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* Racheta */
+.space{display:flex;gap:18px;align-items:stretch}
+.space .grid-eq{flex:1}
+.track{width:64px;flex:none;border-radius:32px;background:linear-gradient(var(--grid),transparent);position:relative;min-height:300px;border:2px dashed var(--box-line)}
+.track .moon{position:absolute;top:6px;left:0;right:0;text-align:center;font-size:34px}
+.rocket{position:absolute;left:0;right:0;text-align:center;font-size:38px;bottom:6px;transition:bottom .7s cubic-bezier(.3,1.4,.5,1)}
+
+/* Ferma */
+.story{display:grid;gap:18px}
+.story-item{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.story-item .pic{font-size:36px;line-height:1.2}
+.story-item p{margin:0 0 6px;font-size:19px}
+
+/* Balanța */
+.scales{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.scale{text-align:center}
+.beam{display:flex;justify-content:space-between;align-items:flex-end;transition:transform .6s;transform:rotate(-6deg)}
+.scale.level .beam{transform:rotate(0)}
+.pan{background:var(--box);border:3px solid var(--box-line);border-radius:0 0 50px 50px;padding:10px 12px 14px;min-width:130px}
+.pan .eq{font-size:26px}
+.post{width:6px;height:46px;background:var(--box-line);margin:0 auto;border-radius:3px}
+.base{width:90px;height:10px;background:var(--box-line);margin:0 auto;border-radius:6px}
+.bar{height:6px;background:var(--box-line);border-radius:3px;margin:0 4px}
+
+/* Piramide */
+.pyramids{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-around}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:6px}
+.row{display:flex;gap:6px}
+.brick{width:74px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--sun);color:#1d3577;font-size:28px;font-weight:700;border:2px solid #d9a51c}
+.brick input.ans{width:2.1em;height:1.6em;font-size:26px}
+.rule{background:var(--box);border:2px solid var(--box-line);border-radius:12px;padding:10px 14px;margin-bottom:18px;display:inline-block}
+
+/* Cod secret */
+.key{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:12px;background:var(--box);border:3px solid var(--sun);border-radius:14px}
+.key span{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;padding:4px 6px;border-radius:8px;border:2px solid var(--box-line);font-size:20px}
+.key b{font-size:24px}
+.word{display:flex;gap:10px;justify-content:center;margin:22px 0 4px}
+.word span{width:56px;height:64px;border-bottom:4px solid var(--ink);display:flex;align-items:flex-end;justify-content:center;font-size:42px;font-weight:700;color:var(--leaf)}
+.word small{display:block}
+.code-eq{display:flex;align-items:center;gap:10px}
+.code-eq .tag{font-size:15px;color:var(--soft)}
+
+footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
+
+@media (max-width:560px){
+  .sheet{padding:22px 14px 22px 40px}
+  .sheet::before{left:26px}
+  .eq{font-size:26px}
+  .space{flex-direction:column-reverse}
+  .track{width:100%;min-height:70px;border-radius:20px}
+  .track .moon{top:auto;bottom:10px;left:auto;right:12px;width:auto}
+  .rocket{bottom:12px!important;left:12px;right:auto;transition:left .7s}
+}
+
+@media print{
+  :root{--paper:#fff;--page:#fff;--ink:#000;--soft:#333;--box:#fff;--box-line:#555;--grid:#e3ebf5}
+  nav,.tools,.actions,.feedback,footer,header .intro{display:none!important}
+  body{background:#fff}
+  .sheet{break-after:page;box-shadow:none;margin:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  input.ans{border:2px solid #555!important;background:#fff!important}
+  .track{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚀 Aventuri cu numere</h1>
+  <p class="intro">Cinci fișe cu numere ascunse. Scrie numărul care lipsește în fiecare căsuță, apoi apasă „Verifică”. Pentru fiecare fișă rezolvată primești o stea!</p>
+</header>
+
+<nav aria-label="Fișe">
+  <a href="#racheta" data-for="racheta"><span>🚀</span>Racheta<span class="star">⭐</span></a>
+  <a href="#ferma" data-for="ferma"><span>🐔</span>Ferma<span class="star">⭐</span></a>
+  <a href="#balanta" data-for="balanta"><span>⚖️</span>Balanța<span class="star">⭐</span></a>
+  <a href="#piramide" data-for="piramide"><span>🧱</span>Piramide<span class="star">⭐</span></a>
+  <a href="#comoara" data-for="comoara"><span>🏴‍☠️</span>Comoara<span class="star">⭐</span></a>
+</nav>
+<div class="tools">
+  <button class="ghost" id="printBtn" type="button">🖨️ Tipărește fișele</button>
+  <button class="ghost" id="resetAll" type="button">🧽 Șterge tot</button>
+</div>
+
+<main>
+
+<!-- FIȘA 1 -->
+<section class="sheet" id="racheta">
+  <div class="sheet-head"><span class="mascot">🚀</span><h2>Racheta spre Lună</h2></div>
+  <p class="name-line">Nume: ______________________</p>
+  <p class="task">Racheta are nevoie de combustibil! Găsește numărul care lipsește. Cu fiecare răspuns bun, racheta urcă mai sus.</p>
+  <div class="space">
+    <div class="grid-eq">
+      <div class="eq"><input class="ans" data-a="6" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 4 = 10</div>
+      <div class="eq">7 + <input class="ans" data-a="5" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> = 12</div>
+      <div class="eq"><input class="ans" data-a="7" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 8 = 15</div>
+      <div class="eq">9 + <input class="ans" data-a="8" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> = 17</div>
+      <div class="eq"><input class="ans" data-a="7" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 6 = 13</div>
+      <div class="eq">5 + <input class="ans" data-a="9" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> = 14</div>
+      <div class="eq">10 + <input class="ans" data-a="10" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> = 20</div>
+      <div class="eq"><input class="ans" data-a="11" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 3 = 14</div>
+    </div>
+    <div class="track" aria-hidden="true"><span class="moon">🌕</span><span class="rocket">🚀</span></div>
+  </div>
+  <p class="feedback" aria-live="polite"></p>
+  <div class="actions"><button type="button" class="check">Verifică</button><button type="button" class="ghost clear">Șterge</button></div>
+</section>
+
+<!-- FIȘA 2 -->
+<section class="sheet" id="ferma">
+  <div class="sheet-head"><span class="mascot">🐔</span><h2>La ferma bunicii</h2></div>
+  <p class="name-line">Nume: ______________________</p>
+  <p class="task">Citește povestea și găsește numărul ascuns.</p>
+  <div class="story">
+    <div class="story-item"><span class="pic">🥚</span><div>
+      <p>Bunica avea 12 ouă. A pus câteva în clătite. Au rămas 5 ouă. Câte ouă a pus în clătite?</p>
+      <div class="eq">12 − <input class="ans" data-a="7" aria-label="ouă puse în clătite" inputmode="numeric" maxlength="2"> = 5</div></div></div>
+    <div class="story-item"><span class="pic">🐓</span><div>
+      <p>În curte erau 15 găini. Câteva au intrat în coteț. Afară au rămas 9. Câte găini au intrat?</p>
+      <div class="eq">15 − <input class="ans" data-a="6" aria-label="găini intrate" inputmode="numeric" maxlength="2"> = 9</div></div></div>
+    <div class="story-item"><span class="pic">🍎</span><div>
+      <p>Ai cules mere. I-ai dat 6 fratelui tău și ți-au rămas 7. Câte mere ai cules?</p>
+      <div class="eq"><input class="ans" data-a="13" aria-label="mere culese" inputmode="numeric" maxlength="2"> − 6 = 7</div></div></div>
+    <div class="story-item"><span class="pic">🐑</span><div>
+      <p>Pe pajiște erau 18 oițe. Câteva au plecat după iarbă proaspătă. Au rămas 10. Câte au plecat?</p>
+      <div class="eq">18 − <input class="ans" data-a="8" aria-label="oițe plecate" inputmode="numeric" maxlength="2"> = 10</div></div></div>
+    <div class="story-item"><span class="pic">🐱</span><div>
+      <p>Pisica avea niște ghemuri. S-au rostogolit 4 sub pat și i-au mai rămas 8. Câte ghemuri avea?</p>
+      <div class="eq"><input class="ans" data-a="12" aria-label="ghemuri" inputmode="numeric" maxlength="2"> − 4 = 8</div></div></div>
+  </div>
+  <p class="feedback" aria-live="polite"></p>
+  <div class="actions"><button type="button" class="check">Verifică</button><button type="button" class="ghost clear">Șterge</button></div>
+</section>
+
+<!-- FIȘA 3 -->
+<section class="sheet" id="balanta">
+  <div class="sheet-head"><span class="mascot">⚖️</span><h2>Balanța magică</h2></div>
+  <p class="name-line">Nume: ______________________</p>
+  <p class="task">Balanța stă dreaptă doar când ambele talere au aceeași valoare. Ce număr lipsește?</p>
+  <div class="scales">
+    <div class="scale"><div class="beam"><div class="pan"><div class="eq">6 + 4</div></div><div class="pan"><div class="eq"><input class="ans" data-a="7" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 3</div></div></div><div class="bar"></div><div class="post"></div><div class="base"></div></div>
+    <div class="scale"><div class="beam"><div class="pan"><div class="eq">8 + 5</div></div><div class="pan"><div class="eq">10 + <input class="ans" data-a="3" aria-label="număr lipsă" inputmode="numeric" maxlength="2"></div></div></div><div class="bar"></div><div class="post"></div><div class="base"></div></div>
+    <div class="scale"><div class="beam"><div class="pan"><div class="eq">9 + <input class="ans" data-a="5" aria-label="număr lipsă" inputmode="numeric" maxlength="2"></div></div><div class="pan"><div class="eq">7 + 7</div></div></div><div class="bar"></div><div class="post"></div><div class="base"></div></div>
+    <div class="scale"><div class="beam"><div class="pan"><div class="eq"><input class="ans" data-a="10" aria-label="număr lipsă" inputmode="numeric" maxlength="2"> + 6</div></div><div class="pan"><div class="eq">20 − 4</div></div></div><div class="bar"></div><div class="post"></div><div class="base"></div></div>
+  </div>
+  <p class="feedback" aria-live="polite"></p>
+  <div class="actions"><button type="button" class="check">Verifică</button><button type="button" class="ghost clear">Șterge</button></div>
+</section>
+
+<!-- FIȘA 4 -->
+<section class="sheet" id="piramide">
+  <div class="sheet-head"><span class="mascot">🧱</span><h2>Piramide de numere</h2></div>
+  <p class="name-line">Nume: ______________________</p>
+  <p class="task">Construiește piramidele până sus!</p>
+  <div class="rule">Regula: fiecare cărămidă = suma celor două cărămizi de sub ea.</div>
+  <div class="pyramids">
+    <div class="pyr">
+      <div class="row"><div class="brick"><input class="ans" data-a="13" aria-label="vârf" inputmode="numeric" maxlength="2"></div></div>
+      <div class="row"><div class="brick"><input class="ans" data-a="7" aria-label="mijloc stânga" inputmode="numeric" maxlength="2"></div><div class="brick"><input class="ans" data-a="6" aria-label="mijloc dreapta" inputmode="numeric" maxlength="2"></div></div>
+      <div class="row"><div class="brick">3</div><div class="brick">4</div><div class="brick">2</div></div>
+    </div>
+    <div class="pyr">
+      <div class="row"><div class="brick">12</div></div>
+      <div class="row"><div class="brick">8</div><div class="brick"><input class="ans" data-a="4" aria-label="mijloc dreapta" inputmode="numeric" maxlength="2"></div></div>
+      <div class="row"><div class="brick">5</div><div class="brick"><input class="ans" data-a="3" aria-label="jos mijloc" inputmode="numeric" maxlength="2"></div><div class="brick">1</div></div>
+    </div>
+    <div class="pyr">
+      <div class="row"><div class="brick"><input class="ans" data-a="17" aria-label="vârf" inputmode="numeric" maxlength="2"></div></div>
+      <div class="row"><div class="brick">9</div><div class="brick"><input class="ans" data-a="8" aria-label="mijloc dreapta" inputmode="numeric" maxlength="2"></div></div>
+      <div class="row"><div class="brick"><input class="ans" data-a="7" aria-label="jos stânga" inputmode="numeric" maxlength="2"></div><div class="brick">2</div><div class="brick">6</div></div>
+    </div>
+  </div>
+  <p class="feedback" aria-live="polite"></p>
+  <div class="actions"><button type="button" class="check">Verifică</button><button type="button" class="ghost clear">Șterge</button></div>
+</section>
+
+<!-- FIȘA 5 -->
+<section class="sheet" id="comoara">
+  <div class="sheet-head"><span class="mascot">🏴‍☠️</span><h2>Codul secret al piratului</h2></div>
+  <p class="name-line">Nume: ______________________</p>
+  <p class="task">Piratul a ascuns un cuvânt în cufăr. Rezolvă fiecare calcul, apoi caută numărul în cheia secretă și scrie litera.</p>
+  <div class="key" aria-label="Cheia secretă">
+    <span><b>2</b>T</span><span><b>3</b>B</span><span><b>4</b>E</span><span><b>5</b>A</span><span><b>6</b>O</span><span><b>7</b>R</span><span><b>8</b>S</span><span><b>9</b>V</span>
+  </div>
+  <div class="grid-eq">
+    <div class="code-eq"><span class="tag">1.</span><span class="eq">8 − <input class="ans" data-a="3" data-i="0" aria-label="litera 1" inputmode="numeric" maxlength="2"> = 5</span></div>
+    <div class="code-eq"><span class="tag">2.</span><span class="eq"><input class="ans" data-a="7" data-i="1" aria-label="litera 2" inputmode="numeric" maxlength="2"> + 4 = 11</span></div>
+    <div class="code-eq"><span class="tag">3.</span><span class="eq">10 − <input class="ans" data-a="5" data-i="2" aria-label="litera 3" inputmode="numeric" maxlength="2"> = 5</span></div>
+    <div class="code-eq"><span class="tag">4.</span><span class="eq"><input class="ans" data-a="9" data-i="3" aria-label="litera 4" inputmode="numeric" maxlength="2"> + 6 = 15</span></div>
+    <div class="code-eq"><span class="tag">5.</span><span class="eq">12 − <input class="ans" data-a="6" data-i="4" aria-label="litera 5" inputmode="numeric" maxlength="2"> = 6</span></div>
+  </div>
+  <div class="word" aria-label="Cuvântul secret"><span></span><span></span><span></span><span></span><span></span></div>
+  <p class="feedback" aria-live="polite"></p>
+  <div class="actions"><button type="button" class="check">Verifică</button><button type="button" class="ghost clear">Șterge</button></div>
+</section>
+
+</main>
+<footer>Sfat: poți tipări fișele și le poate completa cu creionul, sau le poate rezolva direct pe ecran.</footer>
+
+<script>
+(function(){
+  var LETTERS={2:"T",3:"B",4:"E",5:"A",6:"O",7:"R",8:"S",9:"V"};
+  var WIN=["Bravo! Ai rezolvat tot! ⭐","Super! Ești un campion la matematică! 🏆","Excelent! Toate sunt corecte! 🎉"];
+  var KEY="fise-mate-v1";
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){saved={}}
+
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
+  function inputsOf(s){return Array.prototype.slice.call(s.querySelectorAll("input.ans"))}
+
+  var sheets=Array.prototype.slice.call(document.querySelectorAll(".sheet"));
+  sheets.forEach(function(sheet){
+    var id=sheet.id, inputs=inputsOf(sheet), fb=sheet.querySelector(".feedback");
+    saved[id]=saved[id]||{vals:[],done:false};
+    inputs.forEach(function(inp,i){
+      if(saved[id].vals[i]) inp.value=saved[id].vals[i];
+      inp.addEventListener("input",function(){
+        inp.value=inp.value.replace(/[^0-9]/g,"");
+        inp.classList.remove("ok","bad");
+        saved[id].vals[i]=inp.value; save();
+      });
+      inp.addEventListener("keydown",function(e){
+        if(e.key==="Enter"){var n=inputs[i+1]; if(n) n.focus(); else check();}
+      });
+    });
+
+    function check(){
+      var good=0, empty=0;
+      inputs.forEach(function(inp){
+        inp.classList.remove("ok","bad");
+        if(inp.value===""){empty++;return;}
+        if(+inp.value===+inp.dataset.a){inp.classList.add("ok");good++;}
+        else{void inp.offsetWidth;inp.classList.add("bad");}
+      });
+      extras(sheet,inputs);
+      var total=inputs.length;
+      if(good===total){
+        fb.className="feedback win"; fb.textContent=WIN[Math.floor(Math.random()*WIN.length)];
+        saved[id].done=true;
+      }else if(empty===total){
+        fb.className="feedback try"; fb.textContent="Scrie mai întâi câteva răspunsuri în căsuțe.";
+      }else{
+        var wrong=total-good-empty;
+        fb.className="feedback try";
+        fb.textContent="Ai "+good+" din "+total+" corecte."+(wrong?" Căsuțele portocalii mai au nevoie de o încercare.":"")+(empty?" Mai sunt căsuțe goale.":"");
+      }
+      save(); stars();
+    }
+    sheet.querySelector(".check").addEventListener("click",check);
+    sheet.querySelector(".clear").addEventListener("click",function(){
+      inputs.forEach(function(inp){inp.value="";inp.classList.remove("ok","bad");});
+      fb.textContent=""; saved[id]={vals:[],done:false}; save(); extras(sheet,inputs); stars();
+    });
+  });
+
+  function extras(sheet,inputs){
+    var ok=inputs.filter(function(i){return i.classList.contains("ok")}).length;
+    if(sheet.id==="racheta"){
+      var r=sheet.querySelector(".rocket"), small=window.matchMedia("(max-width:560px)").matches, p=ok/inputs.length;
+      if(small){r.style.left="calc(12px + "+(p*70)+"%)";r.style.bottom="";}
+      else{r.style.left="";r.style.bottom="calc(6px + "+(p*78)+"%)";}
+    }
+    if(sheet.id==="balanta"){
+      sheet.querySelectorAll(".scale").forEach(function(sc){
+        var i=sc.querySelector("input.ans"); sc.classList.toggle("level",i.classList.contains("ok"));
+      });
+    }
+    if(sheet.id==="comoara"){
+      var slots=sheet.querySelectorAll(".word span");
+      inputs.forEach(function(inp){
+        slots[+inp.dataset.i].textContent=inp.classList.contains("ok")?LETTERS[inp.dataset.a]:"";
+      });
+    }
+  }
+
+  function stars(){
+    document.querySelectorAll("nav a").forEach(function(a){
+      var s=saved[a.dataset.for]; a.classList.toggle("done",!!(s&&s.done));
+    });
+  }
+
+  document.getElementById("printBtn").addEventListener("click",function(){window.print()});
+  document.getElementById("resetAll").addEventListener("click",function(){
+    if(!confirm("Ștergi toate răspunsurile de pe toate fișele?")) return;
+    sheets.forEach(function(s){s.querySelector(".clear").click();});
+  });
+
+  // Restaurează starea salvată (fără a afișa mesaje)
+  sheets.forEach(function(sheet){
+    var inputs=inputsOf(sheet);
+    if(saved[sheet.id].done){
+      inputs.forEach(function(inp){ if(inp.value!=="" && +inp.value===+inp.dataset.a) inp.classList.add("ok"); });
+      extras(sheet,inputs);
+    }
+  });
+  stars();
+})();
+</script>
+</body>
+</html>
