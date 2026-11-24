@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aventuri cu litere – fișe de limba română</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
+<title>Aventuri cu numere – fișe de matematică</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -91,136 +91,105 @@ input.ans.bad{border:3px solid var(--oops);background:var(--oops-bg);animation:w
 .feedback.try{color:var(--oops)}
 .actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
 
-
-/* Comune: plăcuțe cu litere */
-.pic{font-size:38px;line-height:1.1;flex:none;width:1.25em;text-align:center}
-.wordrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.lt{width:44px;height:54px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:var(--box);border:2px solid var(--box-line);font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:32px;color:var(--ink)}
-.lt.gold{background:var(--brick);border-color:var(--brick-line);color:var(--brick-ink)}
-input.ans.letter{width:44px;height:54px;font-size:32px}
-input.ans.long{font-size:30px;letter-spacing:2px;max-width:100%;margin-top:10px}
-.diacr{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 18px}
-.diacr span{color:var(--soft);font-size:16px;margin-right:2px}
-.diacr button{padding:4px 0;width:44px;font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:24px;background:var(--paper);color:var(--ink);border:2px solid var(--box-line);border-radius:10px}
-
-/* Litera fugită */
+/* Racheta */
 .space{display:flex;gap:18px;align-items:stretch}
-.space .words{flex:1}
-.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px 24px}
-.words.wide,.mix.wide{grid-template-columns:1fr}
-.witem{display:flex;align-items:center;gap:12px}
-.words .wordrow,.mix .wordrow{flex-wrap:nowrap}
-.bank:empty{min-height:0;margin:0}
+.space .grid-eq{flex:1}
 .track{width:64px;flex:none;border-radius:32px;background:linear-gradient(var(--grid),transparent);position:relative;min-height:300px;border:2px dashed var(--box-line)}
-.track .goal{position:absolute;top:6px;left:0;right:0;text-align:center;font-size:34px}
-.bee{position:absolute;left:0;right:0;text-align:center;font-size:36px;bottom:6px;transition:bottom .7s cubic-bezier(.3,1.4,.5,1),left .7s}
+.track .moon{position:absolute;top:6px;left:0;right:0;text-align:center;font-size:34px}
+.rocket{position:absolute;left:0;right:0;text-align:center;font-size:38px;bottom:6px;transition:bottom .7s cubic-bezier(.3,1.4,.5,1),left .7s}
 
-/* Silabe */
-.syl{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px 24px}
-.sitem{display:flex;gap:12px;align-items:flex-start}
-.sword{font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:36px;line-height:1.1}
-.sq{font-size:19px;margin-top:6px;display:flex;align-items:center;gap:10px}
-.train{display:none;margin-top:8px;flex-wrap:wrap;gap:4px;align-items:flex-end}
-.train.show{display:flex}
-.train .loco{font-size:30px;line-height:1}
-.train .wag{background:var(--leaf-bg);border:2px solid var(--leaf);color:var(--ink);border-radius:8px 8px 4px 4px;padding:2px 10px;font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:22px}
+/* Ferma */
+.story{display:grid;gap:18px}
+.story-item{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.story-item .pic{font-size:36px;line-height:1.2}
+.story-item p{margin:0 0 6px;font-size:19px}
 
-/* Literele amestecate */
-.mix{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.aitem{display:flex;gap:12px;align-items:flex-start}
-.aitem .lt{width:40px;height:48px;font-size:28px}
+/* Balanța */
+.scales{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.scale{text-align:center}
+.beam{display:flex;justify-content:space-between;align-items:stretch;transition:transform .6s;transform:rotate(-6deg)}
+.scale.level .beam{transform:rotate(0)}
+.pan{display:flex;align-items:center;justify-content:center;background:var(--box);border:3px solid var(--box-line);border-radius:0 0 50px 50px;padding:10px 12px 14px;min-width:130px}
+.pan .eq{font-size:26px}
+.post{width:6px;height:46px;background:var(--box-line);margin:0 auto;border-radius:3px}
+.base{width:90px;height:10px;background:var(--box-line);margin:0 auto;border-radius:6px}
+.bar{height:6px;background:var(--box-line);border-radius:3px;margin:0 4px}
 
-/* Propoziții încurcate */
-.sents{display:grid;gap:22px}
-.sent{display:flex;gap:12px;align-items:flex-start}
-.sent-main{flex:1;min-width:0}
-.line{min-height:56px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:6px 8px;border-bottom:3px dashed var(--box-line);border-radius:10px 10px 0 0;background:var(--box)}
-.line:empty::before{content:"Atinge cuvintele în ordine…";color:var(--soft);font-size:17px}
-.line.ok{border-bottom:3px solid var(--leaf);background:var(--leaf-bg)}
-.line.bad{border-bottom:3px solid var(--oops);background:var(--oops-bg);animation:wobble .35s}
-.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;min-height:44px}
-button.chip,.chip-p{font-family:"Fredoka",system-ui,sans-serif;font-size:21px;font-weight:500;padding:5px 12px;border-radius:10px;background:var(--paper);color:var(--ink);border:2px solid var(--box-line)}
-button.chip.in{background:var(--brick);color:var(--brick-ink);border-color:var(--brick-line)}
-.print-bank{flex-wrap:wrap;gap:8px}
-.write-line{height:46px;border-bottom:1.5px solid var(--box-line);margin-top:8px}
+/* Piramide */
+.pyramids{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-around}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:6px}
+.row{display:flex;gap:6px}
+.brick{width:74px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--brick);color:var(--brick-ink);font-size:28px;font-weight:700;border:2px solid var(--brick-line)}
+.brick input.ans{width:2.1em;height:1.6em;font-size:26px}
+.rule{background:var(--box);border:2px solid var(--box-line);border-radius:12px;padding:10px 14px;margin-bottom:18px;display:inline-block}
 
-/* Ghicitori */
-.riddles{display:grid;gap:24px}
-.gitem{display:flex;gap:12px;align-items:flex-start}
-.gitem p{margin:0 0 8px;font-size:19px}
-.gpic{transition:transform .4s}
-.gpic.found{transform:scale(1.15)}
-
-@media (prefers-reduced-motion:reduce){.bee,.gpic,.line.bad{transition:none!important;animation:none!important}}
+/* Cod secret */
+.key{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:12px;background:var(--box);border:3px solid var(--sun);border-radius:14px}
+.key span{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;padding:4px 6px;border-radius:8px;border:2px solid var(--box-line);font-size:20px}
+.key b{font-size:24px}
+.word{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0 4px}
+.word span{width:56px;height:64px;border-bottom:4px solid var(--ink);display:flex;align-items:flex-end;justify-content:center;font-size:42px;font-weight:700;color:var(--leaf)}
+.code-eq{display:flex;align-items:center;gap:10px}
+.code-eq .tag{font-size:15px;color:var(--soft)}
 
 footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
 
 @media (max-width:560px){
   .sheet{padding:22px 14px 22px 40px}
   .sheet::before{left:26px}
+  .eq{font-size:26px}
   .space{flex-direction:column-reverse}
   .track{width:100%;min-height:70px;border-radius:20px}
-  .track .goal{top:auto;bottom:10px;left:auto;right:12px}
-  .bee{bottom:12px!important;right:auto}
-  .words,.syl,.mix{grid-template-columns:1fr}
-  .lt,input.ans.letter{width:34px;height:44px;font-size:26px}
-  .aitem .lt{width:32px;height:40px;font-size:24px}
-  .wordrow{gap:4px}
-  .words .wordrow,.mix .wordrow{flex-wrap:wrap}
-  .wordrow.tight .lt,.wordrow.tight input.ans.letter{width:28px;height:40px;font-size:22px}
-  .diacr{gap:4px}
-  .diacr button{width:38px;font-size:21px}
-  .pic{font-size:32px}
-  .sword{font-size:30px}
-  button.chip{font-size:19px}
+  .track .moon{top:auto;bottom:10px;left:auto;right:12px}
+  .rocket{bottom:12px!important;right:auto}
 }
 
 /* Varianta printabilă, A4 */
 @page{size:A4;margin:12mm}
 @media print{
   :root{--paper:#fff;--page:#fff;--ink:#1d3577;--soft:#4a5a80;--box:#fff;--box-line:#7d93bd;--grid:#e3ebf5;color-scheme:light}
-  header,nav,.tools,.actions,.feedback,footer,.track,.diacr,.train,.sent-live{display:none!important}
+  header,nav,.tools,.actions,.feedback,footer,.track{display:none!important}
   body{background:#fff}
   main{max-width:none;padding:0}
   .print-only{display:flex}
-  .write-line.print-only{display:block}
   .name-line{gap:8px;align-items:flex-end;font-family:"Patrick Hand","Comic Sans MS",cursive;font-size:18px;color:var(--soft);margin:2px 0 12px}
   .name-line i{flex:1;border-bottom:1.5px solid var(--box-line);height:1.2em}
   .name-line i.short{flex:0 0 140px}
   .sheet{break-after:page;break-inside:avoid;box-shadow:none;margin:0;border-radius:0;min-height:270mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .sheet:last-of-type{break-after:auto}
   input.ans,input.ans.ok,input.ans.bad{color:transparent!important;border:2px dashed #7d93bd!important;background:#fff!important;animation:none}
-  .gpic.found{visibility:hidden}
+  .word span{color:transparent!important}
+  .beam{transform:none!important}
   body.print-one .sheet:not(.to-print){display:none}
-  .words{gap:30px 24px}
-  .syl{gap:34px 24px}
-  .mix{gap:36px 24px}
-  .sents{gap:30px}
-  .riddles{gap:34px}
+  .eq{font-size:32px}
+  .grid-eq{gap:34px 24px}
+  .story{gap:30px}
+  .scales{gap:44px 26px}
+  .pyramids{gap:40px}
   .task{font-size:19px;margin-bottom:26px}
 }
 </style>
 </head>
 <body>
 <header>
-  <h1>✏️ Aventuri cu litere</h1>
-  <p class="intro">Completează căsuțele: răspunsurile se verifică singure, pe loc. Apasă „Fișă nouă” când vrei alte cuvinte.</p>
+  <h1>🚀 Aventuri cu numere</h1>
+  <p class="intro">Scrie numărul care lipsește în fiecare căsuță: răspunsurile se verifică singure, pe loc. Apasă „Fișă nouă” când vrei alte numere.</p>
   <div class="total" id="total">⭐ 0 stele strânse</div>
 </header>
 
 <nav aria-label="Fișe">
-  <a href="#litera" data-for="litera"><span>🐝</span>Litera fugită<span class="star">⭐</span></a>
-  <a href="#silabe" data-for="silabe"><span>🚂</span>Silabe<span class="star">⭐</span></a>
-  <a href="#amestecat" data-for="amestecat"><span>🧙</span>Amestecate<span class="star">⭐</span></a>
-  <a href="#propozitii" data-for="propozitii"><span>🐞</span>Propoziții<span class="star">⭐</span></a>
-  <a href="#ghicitori" data-for="ghicitori"><span>🦉</span>Ghicitori<span class="star">⭐</span></a>
+  <a href="#racheta" data-for="racheta"><span>🚀</span>Racheta<span class="star">⭐</span></a>
+  <a href="#ferma" data-for="ferma"><span>🐔</span>Ferma<span class="star">⭐</span></a>
+  <a href="#balanta" data-for="balanta"><span>⚖️</span>Balanța<span class="star">⭐</span></a>
+  <a href="#piramide" data-for="piramide"><span>🧱</span>Piramide<span class="star">⭐</span></a>
+  <a href="#comoara" data-for="comoara"><span>🏴‍☠️</span>Comoara<span class="star">⭐</span></a>
 </nav>
 <div class="tools">
   <div class="levels" role="group" aria-label="Nivel">
-    <span>Nivel</span>
-    <button type="button" data-level="1">Ușor</button>
-    <button type="button" data-level="2">Mediu</button>
-    <button type="button" data-level="3">Greu</button>
+    <span>Numere până la</span>
+    <button type="button" data-level="10">10</button>
+    <button type="button" data-level="20">20</button>
+    <button type="button" data-level="50">50</button>
   </div>
   <button type="button" class="new" id="newAll">🔄 Toate fișele noi</button>
   <button type="button" class="ghost" id="printAll">🖨️ Tipărește tot</button>
@@ -234,148 +203,114 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
   "use strict";
 
   /* ---------- Unelte ---------- */
-  var KEY = "fise-romana-v1";
+  var KEY = "fise-mate-v2";
+  var LO = {10:5, 20:10, 50:20};          // cel mai mic rezultat folosit pentru fiecare nivel
   function R(a,b){ return a + Math.floor(Math.random()*(b-a+1)); }
   function pick(arr){ return arr[R(0,arr.length-1)]; }
   function shuffle(arr){ var a=arr.slice(); for(var i=a.length-1;i>0;i--){var j=R(0,i),t=a[i];a[i]=a[j];a[j]=t;} return a; }
-  function take(arr,n){ return shuffle(arr).slice(0,n); }
-  function up(s){ return String(s).toUpperCase().replace(/Ş/g,"Ș").replace(/Ţ/g,"Ț"); }
-  function plain(s){ return up(s).replace(/[ĂÂ]/g,"A").replace(/Î/g,"I").replace(/Ș/g,"S").replace(/Ț/g,"T"); }
-  function lettersOnly(s){ return (String(s).match(/[A-Za-zĂÂÎȘȚŞŢăâîșțşţ]/g)||[]).join(""); }
-  var DIA=/[ĂÂÎȘȚ]/;
-
-  /* ---------- Cuvinte (despărțite în silabe) ---------- */
-  var W=[
-    ["🐱","pi-si-că"],["🐶","câi-ne"],["🐟","peș-te"],["🐓","co-coș"],["🐑","oa-ie"],["🐻","urs"],["🦊","vul-pe"],
-    ["🐸","broas-că"],["🐝","al-bi-nă"],["🦋","flu-tu-re"],["🐌","melc"],["🐘","e-le-fant"],["🐮","va-că"],["🐴","cal"],
-    ["🐷","porc"],["🐭","șoa-re-ce"],["🦆","ra-ță"],["🍎","măr"],["🍐","pa-ră"],["🍌","ba-na-nă"],["🍇","stru-gu-re"],
-    ["🍓","căp-șu-nă"],["🍒","ci-rea-șă"],["🍋","lă-mâ-ie"],["🥕","mor-cov"],["🍅","ro-și-e"],["🥔","car-tof"],["🍞","pâi-ne"],
-    ["🧀","brân-ză"],["🎂","tort"],["🍯","mie-re"],["☀️","soa-re"],["🌙","lu-nă"],["⭐","stea"],["☁️","nor"],["🌧️","ploa-ie"],
-    ["❄️","ză-pa-dă"],["🌈","cur-cu-beu"],["🌳","co-pac"],["🌸","floa-re"],["🍄","ciu-per-că"],["🏠","ca-să"],["🚪","u-șă"],
-    ["🛏️","pat"],["🪑","sca-un"],["📖","car-te"],["✏️","cre-ion"],["🎒","ghioz-dan"],["⚽","min-ge"],["🚗","ma-și-nă"],
-    ["🚂","tren"],["✈️","a-vi-on"],["🚲","bi-ci-cle-tă"],["🚢","va-por"],["🎈","ba-lon"],["🎁","ca-dou"],["🔑","che-ie"],
-    ["🕰️","ceas"],["☂️","um-bre-lă"],["👑","co-roa-nă"],["👟","pan-tof"],["🎩","pă-lă-ri-e"],["🦒","gi-ra-fă"],["🐒","mai-mu-ță"],
-    ["🐊","cro-co-dil"],["🦉","buf-ni-ță"],["🐞","bu-bu-ru-ză"],["🦔","a-ri-ci"],["🐿️","ve-ve-ri-ță"],["🦓","ze-bră"],["🐯","ti-gru"],
-    ["🐼","pan-da"],["🐙","ca-ra-ca-ti-ță"],["🎄","brad"],["🍉","pe-pe-ne"],["🥛","lap-te"],["🐦","pa-să-re"],["🦅","vul-tur"],
-    ["🐺","lup"],["🐐","ca-pră"],["🦢","le-bă-dă"],["🐛","o-mi-dă"],["🕷️","pă-ian-jen"],["🏰","cas-tel"],["🚀","ra-che-tă"],
-    ["🤖","ro-bot"],["🎸","chi-ta-ră"],["🥁","to-bă"],["🎹","pi-an"],["🍬","bom-boa-nă"],["🍦","în-ghe-ța-tă"],["🐪","că-mi-lă"],
-    ["🐬","del-fin"],["🐳","ba-le-nă"],["🦀","crab"],["🌍","pă-mânt"],["🔥","foc"],["🍂","frun-ză"],["🕯️","lu-mâ-na-re"],
-    ["📱","te-le-fon"],["💻","cal-cu-la-tor"],["🧸","ur-su-leț"],["🧲","mag-net"],["🦷","din-te"],["👁️","ochi"],["✋","mâ-nă"],
-    ["👂","u-re-che"],["👃","nas"]
-  ];
-  var WORDS=W.map(function(x){ var syl=x[1].split("-"); return {e:x[0], syl:syl, w:syl.join("")}; });
-  function byLen(a,b){ return WORDS.filter(function(o){ return o.w.length>=a && o.w.length<=b; }); }
-
-  /* ---------- Propoziții ---------- */
-  var SENT={
-    1:[["🍎","Ana are mere."],["🥞","Mama face clătite."],["🐱","Pisica bea lapte."],["🐻","Ursul doarme iarna."],
-       ["📰","Bunicul citește ziarul."],["🦆","Rața înoată repede."],["🌧️","Ploaia udă florile."],["🚲","Tata repară bicicleta."],
-       ["🎵","Copiii cântă frumos."],["🐶","Câinele latră tare."],["🐔","Găina face ouă."],["🐝","Albina adună polen."]],
-    2:[["🎒","Maria merge la școală."],["🐱","Pisica doarme pe covor."],["🐰","Iepurașul mănâncă un morcov."],
-       ["⚽","Andrei se joacă cu mingea."],["🥧","Bunica face plăcinte gustoase."],["🦋","Fluturii zboară peste flori."],
-       ["🌸","Elena udă florile din grădină."],["🚂","Trenul pleacă din gară."],["🌬️","Vântul bate prin pădure."],
-       ["🐟","Peștii înoată în lac."],["⭐","Stelele strălucesc pe cer."],["🍏","Mărul copt este dulce."]],
-    3:[["🐶","Cățelul meu aleargă după o minge."],["🏡","Bunicii mei locuiesc într-o casă mică."],["⛄","Copiii fac un om de zăpadă."],
-       ["📚","Mihai a citit o carte despre dinozauri."],["🏖️","Vara mergem cu toții la mare.","Vara mergem la mare cu toții."],
-       ["🌙","Luna strălucește pe cerul plin de stele."],["🎀","Sora mea are o păpușă nouă."],["🐌","Melcul merge încet pe frunza verde."],
-       ["🍂","Toamna cad frunzele galbene din copaci.","Toamna frunzele galbene cad din copaci."],
-       ["🐦","Pasărea și-a făcut cuib în copac."],["🍰","Mama a pregătit o prăjitură cu mere."]]
-  };
-
-  /* ---------- Ghicitori ---------- */
-  var RID=[
-    ["🐱","PISICĂ","Toarce când e mulțumită, prinde șoareci și bea lapte. Cine este?"],
-    ["🐶","CÂINE","Latră la poartă și dă din coadă când vii acasă. Cine este?"],
-    ["☀️","SOARE","Răsare dimineața, ne încălzește toată ziua și apune seara. Ce este?"],
-    ["🌙","LUNĂ","Se arată noaptea pe cer, când rotundă, când ca o seceră. Ce este?"],
-    ["🐝","ALBINĂ","Zboară din floare în floare și face miere. Cine este?"],
-    ["🐌","MELC","Își poartă casa în spinare și merge foarte încet. Cine este?"],
-    ["🦔","ARICI","Are ace pe spinare, dar nu știe să coasă. Cine este?"],
-    ["🐟","PEȘTE","Trăiește în apă, are solzi și înoată fără picioare. Cine este?"],
-    ["🌧️","PLOAIE","Cade din nori în picături și udă florile. Ce este?"],
-    ["❄️","ZĂPADĂ","E albă și rece, cade iarna, iar din ea facem oameni. Ce este?"],
-    ["☂️","UMBRELĂ","O deschizi când plouă, ca să nu te uzi. Ce este?"],
-    ["📖","CARTE","Are file, dar nu e copac; are povești, dar nu vorbește. Ce este?"],
-    ["🔑","CHEIE","E mică, e de metal și descuie ușa. Ce este?"],
-    ["✏️","CREION","Scrie pe hârtie și se ascute când se tocește. Ce este?"],
-    ["⚽","MINGE","E rotundă, sare și o lovești cu piciorul. Ce este?"],
-    ["🕰️","CEAS","Are limbi, dar nu vorbește; ne arată cât e ora. Ce este?"],
-    ["🎄","BRAD","Rămâne verde și iarna, iar de Crăciun îl împodobim. Ce este?"],
-    ["🐮","VACĂ","Paște iarbă pe pajiște și ne dă lapte. Cine este?"],
-    ["🐸","BROASCĂ","Sare prin baltă și face oac-oac. Cine este?"],
-    ["🌈","CURCUBEU","Apare pe cer după ploaie și are șapte culori. Ce este?"],
-    ["🥕","MORCOV","E portocaliu, crește în pământ, iar iepurașul îl adoră. Ce este?"],
-    ["🦒","GIRAFĂ","Are cel mai lung gât dintre toate animalele. Cine este?"],
-    ["🐘","ELEFANT","E cel mai mare animal de pe uscat și are trompă. Cine este?"],
-    ["🐻","URS","Iarna doarme în bârlog și îi place mult mierea. Cine este?"],
-    ["👃","NAS","Îl ai în mijlocul feței și cu el simți mirosul florilor. Ce este?"],
-    ["🦊","VULPE","Are coada roșcată și stufoasă și e foarte vicleană. Cine este?"],
-    ["🐓","COCOȘ","Cântă „cucurigu” dimineața devreme. Cine este?"]
-  ];
+  function A(n){ return {a:n}; }          // număr ascuns (căsuță de completat)
+  function cnt(n,noun){ var r=n%100; return n + (n>=20 && (r===0 || r>=20) ? " de " : " ") + noun; }   // „25 de ouă”, „7 ouă”
 
   /* ---------- Generatoare ---------- */
-  function genLitera(L){
-    var lim = L===1 ? [3,5] : L===2 ? [4,7] : [6,11];
-    return {items: take(byLen(lim[0],lim[1]),8).map(function(o){
-      var w=up(o.w), n=w.length, all=[];
-      for(var i=0;i<n;i++) all.push(i);
-      var dia=all.filter(function(i){ return DIA.test(w[i]); }), plainPos=all.filter(function(i){ return !DIA.test(w[i]); });
-      var first = (L>1 && dia.length && Math.random()<.5) ? pick(dia) : pick(L===1 ? plainPos : all);
-      var hide=[first];
-      if(L===3){ var c=all.filter(function(i){ return Math.abs(i-first)>1; }); if(c.length) hide.push(pick(c)); }
-      return {e:o.e, w:w, hide:hide};
+  function genRacheta(M){
+    var items=[], seen={};
+    while(items.length<8){
+      var s=R(LO[M],M), a=R(1,s-1), b=s-a, left=Math.random()<.5;
+      var k=a+"+"+b+(left?"L":"R"); if(seen[k]) continue; seen[k]=1;
+      items.push(left ? [A(a),"+",b,"=",s] : [a,"+",A(b),"=",s]);
+    }
+    return {items:items};
+  }
+
+  var FARM = [
+    {pic:"🥚",n:"ouă",take:function(W,Rr){return "Bunica avea "+W+". A pus câteva în clătite. Au rămas "+Rr+". Câte ouă a pus în clătite?";},whole:function(P,Rr){return "Bunica avea niște ouă. A pus "+P+" în clătite și i-au rămas "+Rr+". Câte ouă avea la început?";}},
+    {pic:"🐓",n:"găini",take:function(W,Rr){return "În curte erau "+W+". Câteva au intrat în coteț. Afară au rămas "+Rr+". Câte găini au intrat?";},whole:function(P,Rr){return "În curte erau niște găini. "+P+" au intrat în coteț și afară au rămas "+Rr+". Câte găini erau în curte?";}},
+    {pic:"🍎",n:"mere",take:function(W,Rr){return "Ai cules "+W+". I-ai dat câteva fratelui tău și ți-au rămas "+Rr+". Câte mere i-ai dat?";},whole:function(P,Rr){return "Ai cules niște mere. I-ai dat "+P+" fratelui tău și ți-au rămas "+Rr+". Câte mere ai cules?";}},
+    {pic:"🐑",n:"oițe",take:function(W,Rr){return "Pe pajiște erau "+W+". Câteva au plecat după iarbă proaspătă. Au rămas "+Rr+". Câte oițe au plecat?";},whole:function(P,Rr){return "Pe pajiște erau niște oițe. "+P+" au plecat după iarbă proaspătă și au rămas "+Rr+". Câte oițe erau la început?";}},
+    {pic:"🐱",n:"ghemuri",take:function(W,Rr){return "Pisica avea "+W+". Câteva s-au rostogolit sub pat. I-au rămas "+Rr+". Câte ghemuri s-au rostogolit?";},whole:function(P,Rr){return "Pisica avea niște ghemuri. "+P+" s-au rostogolit sub pat și i-au rămas "+Rr+". Câte ghemuri avea?";}},
+    {pic:"🍅",n:"roșii",take:function(W,Rr){return "În coș erau "+W+". Bunica a pus câteva în salată. Au rămas "+Rr+". Câte roșii a pus în salată?";},whole:function(P,Rr){return "În coș erau niște roșii. Bunica a pus "+P+" în salată și au rămas "+Rr+". Câte roșii erau în coș?";}},
+    {pic:"🦆",n:"rățuște",take:function(W,Rr){return "Pe lac înotau "+W+". Câteva au ieșit pe mal. Pe lac au rămas "+Rr+". Câte rățuște au ieșit?";},whole:function(P,Rr){return "Pe lac înotau niște rățuște. "+P+" au ieșit pe mal și pe lac au rămas "+Rr+". Câte rățuște erau la început?";}},
+    {pic:"🐶",n:"oase",take:function(W,Rr){return "Cățelul avea "+W+". A îngropat câteva în grădină. I-au rămas "+Rr+". Câte oase a îngropat?";},whole:function(P,Rr){return "Cățelul avea niște oase. A îngropat "+P+" în grădină și i-au rămas "+Rr+". Câte oase avea?";}},
+    {pic:"🐰",n:"morcovi",take:function(W,Rr){return "Iepurașul avea "+W+". A mâncat câțiva. Au rămas "+Rr+". Câți morcovi a mâncat?";},whole:function(P,Rr){return "Iepurașul avea niște morcovi. A mâncat "+P+" și i-au rămas "+Rr+". Câți morcovi avea?";}},
+    {pic:"🐴",n:"mere",take:function(W,Rr){return "Căluțul avea "+W+" în iesle. A mâncat câteva. Au rămas "+Rr+". Câte mere a mâncat?";},whole:function(P,Rr){return "Căluțul avea niște mere în iesle. A mâncat "+P+" și au rămas "+Rr+". Câte mere avea?";}},
+    {pic:"🐟",n:"pești",take:function(W,Rr){return "În acvariu erau "+W+". Câțiva au fost mutați în alt acvariu. Au rămas "+Rr+". Câți pești au fost mutați?";},whole:function(P,Rr){return "În acvariu erau niște pești. "+P+" au fost mutați în alt acvariu și au rămas "+Rr+". Câți pești erau la început?";}},
+    {pic:"🍪",n:"fursecuri",take:function(W,Rr){return "Pe farfurie erau "+W+". Copiii au mâncat câteva. Au rămas "+Rr+". Câte fursecuri au mâncat?";},whole:function(P,Rr){return "Pe farfurie erau niște fursecuri. Copiii au mâncat "+P+" și au rămas "+Rr+". Câte fursecuri erau?";}}
+  ];
+  function genFerma(M){
+    var idx=shuffle(FARM.map(function(_,i){return i;})).slice(0,5);
+    return {items: idx.map(function(i){
+      var t=FARM[i], w=R(Math.max(LO[M],6),M), p=R(2,w-2), r=w-p;
+      if(Math.random()<.5) return {i:i, text:t.take(cnt(w,t.n),cnt(r,t.n)), tokens:[w,"-",A(p),"=",r]};
+      return {i:i, text:t.whole(p,cnt(r,t.n)), tokens:[A(w),"-",p,"=",r]};
     })};
   }
 
-  function genSilabe(L){
-    var lim = L===1 ? [1,2] : L===2 ? [1,3] : [2,5];
-    var pool=WORDS.filter(function(o){ return o.syl.length>=lim[0] && o.syl.length<=lim[1]; });
-    return {items: take(pool,6).map(function(o){ return {e:o.e, syl:o.syl}; })};
+  function genBalanta(M){
+    var items=[];
+    for(var k=0;k<4;k++){
+      var L=R(LO[M],M), known, blank, a;
+      if(Math.random()<.35 && L<M){ var x=R(L+1,M); known=[x,"-",x-L]; a=-1; }
+      else { a=R(1,L-1); known=[a,"+",L-a]; }
+      var c; do{ c=R(1,L-1); }while(c===a && L>2);
+      var r=Math.random();
+      if(r<.4) blank=[c,"+",A(L-c)];
+      else if(r<.8 || L>=M) blank=[A(L-c),"+",c];
+      else { var y=R(L+1,M); blank=[y,"-",A(y-L)]; }
+      items.push(Math.random()<.5 ? {left:known,right:blank} : {left:blank,right:known});
+    }
+    return {items:items};
   }
 
-  function genAmestecat(L){
-    var lim = L===1 ? [3,4] : L===2 ? [5,6] : [7,11];
-    return {hidePic:L===3, items: take(byLen(lim[0],lim[1]),6).map(function(o){
-      var w=up(o.w), mix, t=0;
-      do{ mix=shuffle(w.split("")); t++; }while(mix.join("")===w && t<30);
-      return {e:o.e, w:w, mix:mix};
-    })};
+  var PATTERNS=[["T","M1","M2"],["M2","B2"],["B1","M2","T"],["B3","M1"]];
+  function genPiramide(M){
+    var pats=shuffle(PATTERNS).slice(0,3), items=[];
+    pats.forEach(function(p){
+      var b1,b2,b3,top,tries=0, mx=Math.max(2,Math.floor(M/3));
+      do{ b1=R(1,mx); b2=R(1,mx); b3=R(1,mx); top=b1+2*b2+b3; tries++; }
+      while((top>M || top<Math.ceil(M*.5)) && tries<500);
+      var v={T:top,M1:b1+b2,M2:b2+b3,B1:b1,B2:b2,B3:b3};
+      function c(n){ return p.indexOf(n)>=0 ? A(v[n]) : v[n]; }
+      items.push({rows:[[c("T")],[c("M1"),c("M2")],[c("B1"),c("B2"),c("B3")]]});
+    });
+    return {items:items};
   }
 
-  function genPropozitii(L){
-    return {items: take(SENT[L],4).map(function(s){
-      var n=s[1].split(" ").length, idx=[], order, t=0;
-      for(var i=0;i<n;i++) idx.push(i);
-      do{ order=shuffle(idx); t++; }while(order.join()===idx.join() && t<30);
-      return {e:s[0], s:s[1], alt:s.slice(2), order:order};
-    })};
+  var WORDS=["BRAVO","SUPER","MINGE","FLORI","CAIET","LAPTE","ZEBRA","TIGRU","SOARE","CARTE","VULPE","PIRAT","LUMEA","NOROC","PANDA","ROBOT"];
+  var ALPHA="ABCDEFGHIJLMNOPRSTUVZ".split("");
+  function codeEq(n,M){
+    var opts=[];
+    if(n+1<=M){
+      var s=R(n+1,M), a=s-n, x=R(n+1,M);
+      opts.push([a,"+",A(n),"=",s],[A(n),"+",a,"=",s],[x,"-",A(n),"=",x-n]);
+    }
+    if(n>=2){ var y=R(1,n-1); opts.push([A(n),"-",y,"=",n-y]); }
+    return pick(opts);
   }
-
-  function genGhicitori(L){
-    var pool=RID.filter(function(r){ return L===1 ? r[1].length<=5 : L===2 ? r[1].length<=7 : r[1].length>=4; });
-    return {items: take(pool,4).map(function(r){
-      var n=r[1].length, give = L===1 ? (n>=4 ? [0,n-1] : [0]) : L===2 ? [0] : [];
-      return {e:r[0], w:r[1], q:r[2], give:give};
-    })};
+  function genComoara(M){
+    var word=pick(WORDS), letters=[];
+    word.split("").forEach(function(ch){ if(letters.indexOf(ch)<0) letters.push(ch); });
+    var pool=[]; for(var i=2;i<=Math.min(M,20);i++) pool.push(i);
+    pool=shuffle(pool);
+    var map={}, key=[];
+    letters.forEach(function(ch,i){ map[ch]=pool[i]; key.push([pool[i],ch]); });
+    var decoys=shuffle(ALPHA.filter(function(ch){return letters.indexOf(ch)<0;})).slice(0,3);
+    decoys.forEach(function(ch,i){ key.push([pool[letters.length+i],ch]); });
+    key.sort(function(a,b){return a[0]-b[0];});
+    return {word:word, key:key, items:word.split("").map(function(ch){ return codeEq(map[ch],M); })};
   }
 
   var SHEETS=[
-    {id:"litera", mascot:"🐝", title:"Litera fugită", dia:true, gen:genLitera,
-     task:"Unele litere au zburat din cuvinte! Scrie litera care lipsește. Cu fiecare cuvânt corect, albinuța zboară spre floare."},
-    {id:"silabe", mascot:"🚂", title:"Trenul silabelor", gen:genSilabe,
-     task:"Spune cuvântul cu voce tare și bate din palme pentru fiecare silabă. Câte silabe are? Pentru fiecare răspuns bun, trenul își primește vagoanele."},
-    {id:"amestecat", mascot:"🧙", title:"Literele amestecate", dia:true, gen:genAmestecat,
-     task:"Vrăjitorul a amestecat literele. Pune-le în ordine și scrie cuvântul."},
-    {id:"propozitii", mascot:"🐞", title:"Propoziții încurcate", gen:genPropozitii,
-     task:"Atinge cuvintele în ordinea bună ca să formezi propoziția. Ține minte: propoziția începe cu literă mare și se termină cu punct."},
-    {id:"ghicitori", mascot:"🦉", title:"Ghicitorile bufniței", dia:true, gen:genGhicitori,
-     task:"Citește ghicitoarea și scrie răspunsul, câte o literă în fiecare căsuță."}
+    {id:"racheta", mascot:"🚀", title:"Racheta spre Lună", task:"Racheta are nevoie de combustibil! Găsește numărul care lipsește. Cu fiecare răspuns bun, racheta urcă mai sus.", gen:genRacheta},
+    {id:"ferma", mascot:"🐔", title:"La ferma bunicii", task:"Citește povestea și găsește numărul ascuns.", gen:genFerma},
+    {id:"balanta", mascot:"⚖️", title:"Balanța magică", task:"Balanța stă dreaptă doar când ambele talere au aceeași valoare. Ce număr lipsește?", gen:genBalanta},
+    {id:"piramide", mascot:"🧱", title:"Piramide de numere", task:"Construiește piramidele până sus!", gen:genPiramide},
+    {id:"comoara", mascot:"🏴‍☠️", title:"Codul secret al piratului", task:"Piratul a ascuns un cuvânt în cufăr. Rezolvă fiecare calcul, caută numărul în cheia secretă și scrie litera.", gen:genComoara}
   ];
 
   /* ---------- Stare (salvată în browser) ---------- */
   var state=null, saveTimer=0;
   try{ state=JSON.parse(localStorage.getItem(KEY)||"null"); }catch(e){ state=null; }
-  if(!state || !state.sheets || [1,2,3].indexOf(state.level)<0) state={level:1, stars:0, sheets:{}};
+  if(!state || !state.sheets || [10,20,50].indexOf(state.level)<0) state={level:20, stars:0, sheets:{}};
   SHEETS.forEach(function(s){ if(!state.sheets[s.id] || !state.sheets[s.id].data) newData(s); });
   function newData(s){ state.sheets[s.id]={data:s.gen(state.level), vals:[], done:false}; }
   /* scrierea în browser e grupată: o dată la 400 ms, nu la fiecare tastă */
@@ -385,74 +320,51 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
   document.addEventListener("visibilitychange",function(){ if(document.hidden) saveNow(); });
 
   /* ---------- Afișare ---------- */
-  function letterBox(a,g){
-    return '<input class="ans letter" data-a="'+a+'" data-g="'+g+'" aria-label="literă lipsă" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">';
+  function tok(t){
+    if(typeof t==="object") return '<input class="ans" data-a="'+t.a+'" aria-label="număr lipsă" inputmode="numeric" maxlength="2" autocomplete="off">';
+    if(t==="-") return "−";
+    return String(t);
   }
-  function tile(ch,gold){ return '<span class="lt'+(gold?' gold':'')+'">'+ch+'</span>'; }
+  function eq(tokens){ return tokens.map(tok).join(" "); }
 
-  function sentWords(it){ return it.s.split(" "); }
-  function sentLive(it,placed){
-    var words=sentWords(it);
-    return '<div class="line" aria-label="Propoziția ta">'+placed.map(function(wi){
-        return '<button type="button" class="chip in" data-w="'+wi+'">'+words[wi]+'</button>';
-      }).join("")+'</div><div class="bank">'+it.order.filter(function(wi){ return placed.indexOf(wi)<0; }).map(function(wi){
-        return '<button type="button" class="chip" data-w="'+wi+'">'+words[wi]+'</button>';
-      }).join("")+'</div>';
-  }
-
-  function body(id,d,vals){
-    var wide;
-    if(id==="litera"){
-      wide=d.items.some(function(it){ return it.w.length>6; });
-      return '<div class="space"><div class="words'+(wide?' wide':'')+'">'+d.items.map(function(it,g){
-        return '<div class="witem"><span class="pic">'+it.e+'</span><div class="wordrow'+(it.w.length>8?' tight':'')+'">'+it.w.split("").map(function(ch,i){
-          return it.hide.indexOf(i)>=0 ? letterBox(ch,g) : tile(ch);
-        }).join("")+'</div></div>';
-      }).join("")+'</div><div class="track" aria-hidden="true"><span class="goal">🌻</span><span class="bee">🐝</span></div></div>';
+  function body(id,d){
+    if(id==="racheta"){
+      return '<div class="space"><div class="grid-eq">'+d.items.map(function(t){return '<div class="eq">'+eq(t)+'</div>';}).join("")+
+        '</div><div class="track" aria-hidden="true"><span class="moon">🌕</span><span class="rocket">🚀</span></div></div>';
     }
-    if(id==="silabe"){
-      return '<div class="syl">'+d.items.map(function(it,g){
-        return '<div class="sitem"><span class="pic">'+it.e+'</span><div><div class="sword">'+it.syl.join("")+'</div>'+
-          '<div class="sq">Câte silabe? <input class="ans" data-a="'+it.syl.length+'" data-g="'+g+'" data-num="1" inputmode="numeric" aria-label="numărul de silabe" autocomplete="off"></div>'+
-          '<div class="train" aria-hidden="true"><span class="loco">🚂</span>'+it.syl.map(function(s){ return '<span class="wag">'+s+'</span>'; }).join("")+'</div></div></div>';
+    if(id==="ferma"){
+      return '<div class="story">'+d.items.map(function(it){
+        return '<div class="story-item"><span class="pic">'+FARM[it.i].pic+'</span><div><p>'+it.text+'</p><div class="eq">'+eq(it.tokens)+'</div></div></div>';
       }).join("")+'</div>';
     }
-    if(id==="amestecat"){
-      wide=d.items.some(function(it){ return it.w.length>6; });
-      return '<div class="mix'+(wide?' wide':'')+'">'+d.items.map(function(it,g){
-        return '<div class="aitem"><span class="pic gpic" data-e="'+it.e+'">'+(d.hidePic?"❓":it.e)+'</span><div><div class="wordrow'+(it.w.length>8?' tight':'')+'">'+
-          it.mix.map(function(ch){ return tile(ch,true); }).join("")+'</div>'+
-          '<input class="ans long" data-a="'+it.w+'" data-g="'+g+'" style="width:'+(it.w.length*0.7+1.4).toFixed(1)+'em" aria-label="cuvântul" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"></div></div>';
+    if(id==="balanta"){
+      return '<div class="scales">'+d.items.map(function(it){
+        return '<div class="scale"><div class="beam"><div class="pan"><div class="eq">'+eq(it.left)+'</div></div><div class="pan"><div class="eq">'+eq(it.right)+
+          '</div></div></div><div class="bar"></div><div class="post"></div><div class="base"></div></div>';
       }).join("")+'</div>';
     }
-    if(id==="propozitii"){
-      return '<div class="sents">'+d.items.map(function(it,i){
-        var words=sentWords(it);
-        return '<div class="sent" data-i="'+i+'"><span class="pic">'+it.e+'</span><div class="sent-main">'+
-          '<div class="sent-live">'+sentLive(it,vals[i]||[])+'</div>'+
-          '<div class="print-only print-bank">'+it.order.map(function(wi){ return '<span class="chip-p">'+words[wi]+'</span>'; }).join("")+'</div>'+
-          '<div class="print-only write-line"></div>'+(words.length>5?'<div class="print-only write-line"></div>':'')+
-          '</div></div>';
-      }).join("")+'</div>';
+    if(id==="piramide"){
+      return '<div class="rule">Regula: fiecare cărămidă = suma celor două cărămizi de sub ea.</div><div class="pyramids">'+
+        d.items.map(function(p){
+          return '<div class="pyr">'+p.rows.map(function(r){
+            return '<div class="row">'+r.map(function(v){return '<div class="brick">'+tok(v)+'</div>';}).join("")+'</div>';
+          }).join("")+'</div>';
+        }).join("")+'</div>';
     }
-    if(id==="ghicitori"){
-      return '<div class="riddles">'+d.items.map(function(it,g){
-        return '<div class="gitem"><span class="pic gpic" data-e="'+it.e+'">❓</span><div><p>'+it.q+'</p><div class="wordrow'+(it.w.length>8?' tight':'')+'">'+
-          it.w.split("").map(function(ch,i){ return it.give.indexOf(i)>=0 ? tile(ch,true) : letterBox(ch,g); }).join("")+'</div></div></div>';
-      }).join("")+'</div>';
+    if(id==="comoara"){
+      return '<div class="key" aria-label="Cheia secretă">'+d.key.map(function(k){return '<span><b>'+k[0]+'</b>'+k[1]+'</span>';}).join("")+'</div>'+
+        '<div class="grid-eq">'+d.items.map(function(t,i){return '<div class="code-eq"><span class="tag">'+(i+1)+'.</span><span class="eq">'+eq(t)+'</span></div>';}).join("")+'</div>'+
+        '<div class="word" aria-label="Cuvântul secret">'+d.word.split("").map(function(){return "<span></span>";}).join("")+'</div>';
     }
     return "";
   }
-
-  var DIA_BAR='<div class="diacr" role="group" aria-label="Litere cu diacritice"><span>Litere speciale:</span>'+
-    ["Ă","Â","Î","Ș","Ț"].map(function(c){ return '<button type="button" data-ch="'+c+'" aria-label="Scrie '+c+'">'+c+'</button>'; }).join("")+'</div>';
 
   var main=document.getElementById("sheets");
   main.innerHTML=SHEETS.map(function(s){
     return '<section class="sheet" id="'+s.id+'">'+
       '<div class="sheet-head"><span class="mascot">'+s.mascot+'</span><h2>'+s.title+'</h2></div>'+
       '<div class="print-only name-line">Nume: <i></i> Data: <i class="short"></i></div>'+
-      '<p class="task">'+s.task+'</p>'+(s.dia?DIA_BAR:"")+'<div class="content"></div>'+
+      '<p class="task">'+s.task+'</p><div class="content"></div>'+
       '<p class="feedback" aria-live="polite"></p>'+
       '<div class="actions"><button type="button" class="new regen">🔄 Fișă nouă</button>'+
       '<button type="button" class="ghost print1">🖨️ Tipărește</button>'+
@@ -463,67 +375,32 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
   var SEC={};
   SHEETS.forEach(function(s){
     var el=document.getElementById(s.id);
-    SEC[s.id]={el:el, content:el.querySelector(".content"), fb:el.querySelector(".feedback"), inputs:[], last:null, caret:null};
+    SEC[s.id]={el:el, content:el.querySelector(".content"), fb:el.querySelector(".feedback"), inputs:[]};
   });
   var SMALL=window.matchMedia("(max-width:560px)");
+  var WAIT=1200;   // după cât timp (ms) verificăm un număr scris mai scurt decât răspunsul
 
-  function judge(inp){
-    var v=inp.value, a=inp.dataset.a;
-    if(v==="") return "empty";
-    if(inp.dataset.num) return +v===+a ? "ok" : "bad";
-    if(up(v)===a) return "ok";
-    return plain(v)===plain(a) ? "dia" : "bad";
-  }
-
-  /* Un câmp e gata de verificat când are destule litere sau copilul a trecut mai departe (Enter / altă căsuță). */
+  /* Un număr e gata de verificat când are cel puțin atâtea cifre cât răspunsul,
+     sau când copilul a trecut mai departe (Enter, altă căsuță, o mică pauză). */
   function ready(inp){
     if(!inp.value) return false;
-    if(inp.classList.contains("letter") || inp.dataset.num) return true;
     return inp.value.length>=inp.dataset.a.length || inp.dataset.t==="1";
   }
-
-  /* pune culoarea; tremurăm doar la o greșeală nouă, nu la reafișare */
   function mark(el,r,live){
     if(r==="ok"){ el.classList.remove("bad","quiet"); el.classList.add("ok"); }
     else if(r==="bad"){ if(!el.classList.contains("bad")){ el.classList.remove("ok"); el.classList.toggle("quiet",!live); el.classList.add("bad"); } }
     else el.classList.remove("ok","bad","quiet");
   }
 
-  /* câte un rezultat pentru fiecare cuvânt / propoziție; un cuvânt se verifică doar când toate căsuțele lui sunt completate */
-  function units(s,live){
-    var P=SEC[s.id], st=state.sheets[s.id];
-    if(s.id==="propozitii"){
-      var sents=P.content.querySelectorAll(".sent");
-      return st.data.items.map(function(it,i){
-        var placed=st.vals[i]||[], words=sentWords(it), line=sents[i].querySelector(".line");
-        if(placed.length<words.length){ mark(line,"empty",live); return {r:"empty"}; }
-        var got=placed.map(function(wi){ return words[wi]; }).join(" ");
-        var ok = got===it.s || it.alt.indexOf(got)>=0;
-        mark(line, ok?"ok":"bad", live);
-        return {r: ok?"ok":"bad"};
-      });
-    }
-    var groups={}, order=[];
-    P.inputs.forEach(function(inp){
-      var g=inp.dataset.g; if(!groups[g]){ groups[g]=[]; order.push(g); }
-      groups[g].push(inp);
-    });
-    return order.map(function(g){
-      var list=groups[g];
-      if(!list.every(ready)){ list.forEach(function(i){ mark(i,"empty",live); }); return {r:"empty"}; }
-      var js=list.map(judge);
-      list.forEach(function(inp,k){ mark(inp, js[k]==="ok"?"ok":"bad", live); });
-      if(js.every(function(j){ return j==="ok"; })) return {r:"ok"};
-      return {r:"bad", dia:js.indexOf("dia")>=0};
-    });
-  }
-
-  var WIN=["Bravo! Ai rezolvat tot! ⭐","Super! Citești și scrii ca un campion! 🏆","Excelent! Toate sunt corecte! 🎉"];
-  /* verificarea automată: rulează după fiecare literă, cuvânt mutat sau la reafișare */
+  var WIN=["Bravo! Ai rezolvat tot! ⭐","Super! Ești un campion la matematică! 🏆","Excelent! Toate sunt corecte! 🎉"];
+  /* verificarea automată: rulează după fiecare cifră și la reafișare */
   function evaluate(s,live){
-    var P=SEC[s.id], st=state.sheets[s.id], fb=P.fb, u=units(s,live), total=u.length,
-        good=0, wrong=0, dia=false;
-    u.forEach(function(x){ if(x.r==="ok") good++; else if(x.r==="bad") wrong++; if(x.dia) dia=true; });
+    var P=SEC[s.id], st=state.sheets[s.id], fb=P.fb, inputs=P.inputs, total=inputs.length, good=0, wrong=0;
+    inputs.forEach(function(inp){
+      if(!ready(inp)){ mark(inp,"empty",live); return; }
+      if(+inp.value===+inp.dataset.a){ mark(inp,"ok",live); good++; }
+      else { mark(inp,"bad",live); wrong++; }
+    });
     extras(s.id);
     if(good===total){
       if(fb.className!=="feedback win"){ fb.className="feedback win"; fb.textContent=pick(WIN); }
@@ -532,17 +409,16 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
       fb.className="feedback"; fb.textContent="";
     }else{
       fb.className="feedback try";
-      fb.textContent="Ai "+good+" din "+total+" corecte."+(wrong?" Ce e portocaliu mai are nevoie de o încercare.":"")+
-        (dia?" Atenție la diacritice: ă, â, î, ș, ț!":"")+(good+wrong<total?" Continuă!":"");
+      fb.textContent="Ai "+good+" din "+total+" corecte."+(wrong?" Căsuțele portocalii mai au nevoie de o încercare.":"")+(good+wrong<total?" Continuă!":"");
     }
   }
 
   function render(s, animate){
     var P=SEC[s.id], st=state.sheets[s.id], content=P.content;
-    content.innerHTML=body(s.id, st.data, st.vals);
+    P.inputs.forEach(function(inp){ clearTimeout(inp._wait); });
+    content.innerHTML=body(s.id, st.data);
     if(animate){ content.classList.remove("fresh"); void content.offsetWidth; content.classList.add("fresh"); }
     P.fb.className="feedback"; P.fb.textContent="";
-    P.last=null; P.caret=null;
     P.inputs=Array.prototype.slice.call(content.querySelectorAll("input.ans"));
     P.inputs.forEach(function(inp,i){
       inp.dataset.i=i;
@@ -551,32 +427,25 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
     evaluate(s,false);
   }
 
-  function allOk(list){ return list.length>0 && list.every(function(i){ return i.classList.contains("ok"); }); }
-  function inputsIn(el){ return Array.prototype.slice.call(el.querySelectorAll("input.ans")); }
   function extras(id){
-    var c=SEC[id].content;
-    if(id==="litera"){
-      var items=c.querySelectorAll(".witem"), ok=0;
-      items.forEach(function(w){ if(allOk(inputsIn(w))) ok++; });
-      var b=c.querySelector(".bee"), p=items.length ? ok/items.length : 0;
-      if(SMALL.matches){ b.style.left="calc(12px + "+(p*70)+"%)"; b.style.bottom=""; }
-      else { b.style.left=""; b.style.bottom="calc(6px + "+(p*78)+"%)"; }
+    var P=SEC[id], c=P.content, inputs=P.inputs;
+    if(id==="racheta"){
+      var ok=inputs.filter(function(i){return i.classList.contains("ok");}).length;
+      var r=c.querySelector(".rocket"), p=inputs.length ? ok/inputs.length : 0;
+      if(SMALL.matches){ r.style.left="calc(12px + "+(p*70)+"%)"; r.style.bottom=""; }
+      else { r.style.left=""; r.style.bottom="calc(6px + "+(p*78)+"%)"; }
     }
-    if(id==="silabe"){
-      c.querySelectorAll(".sitem").forEach(function(it){
-        it.querySelector(".train").classList.toggle("show", it.querySelector("input.ans").classList.contains("ok"));
+    if(id==="balanta"){
+      c.querySelectorAll(".scale").forEach(function(sc){
+        sc.classList.toggle("level", sc.querySelector("input.ans").classList.contains("ok"));
       });
     }
-    if(id==="amestecat" || id==="ghicitori"){
-      var hide = id==="ghicitori" || state.sheets.amestecat.data.hidePic;
-      c.querySelectorAll(".gpic").forEach(function(pic){
-        var found=allOk(inputsIn(pic.parentNode));
-        pic.classList.toggle("found", found && hide);
-        if(hide) pic.textContent = found ? pic.dataset.e : "❓";
-      });
+    if(id==="comoara"){
+      var d=state.sheets.comoara.data, slots=c.querySelectorAll(".word span");
+      inputs.forEach(function(inp,i){ slots[i].textContent=inp.classList.contains("ok") ? d.word[i] : ""; });
     }
   }
-  function onResize(){ extras("litera"); }
+  function onResize(){ extras("racheta"); }
   if(SMALL.addEventListener) SMALL.addEventListener("change",onResize); else if(SMALL.addListener) SMALL.addListener(onResize);
 
   function starText(n){ var r=n%100; return n===1 ? "1 stea strânsă" : n+(n>=20 && (r===0 || r>=20) ? " de" : "")+" stele strânse"; }
@@ -605,6 +474,10 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
   function focusNextEmpty(P,i){
     for(var k=i+1;k<P.inputs.length;k++){ if(!P.inputs[k].value){ P.inputs[k].focus(); return; } }
   }
+  function force(s,inp){
+    clearTimeout(inp._wait);
+    if(inp.value && inp.dataset.t!=="1"){ inp.dataset.t="1"; evaluate(s,true); }
+  }
 
   /* ---------- Evenimente (o singură dată pe fișă, nu la fiecare reafișare) ---------- */
   SHEETS.forEach(function(s){
@@ -612,35 +485,22 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
 
     content.addEventListener("input",function(e){
       var inp=e.target; if(!inp.classList || !inp.classList.contains("ans")) return;
-      var st=state.sheets[s.id], i=+inp.dataset.i, isLetter=inp.classList.contains("letter"), v, pos=inp.selectionStart;
-      if(inp.dataset.num) v=inp.value.replace(/[^0-9]/g,"").slice(-1);
-      else { v=up(lettersOnly(inp.value)); if(isLetter) v=v.slice(-1); }
-      if(inp.value!==v){ inp.value=v; if(!isLetter && pos!=null){ try{ inp.setSelectionRange(pos,pos); }catch(err){} } }
+      var i=+inp.dataset.i, v=inp.value.replace(/[^0-9]/g,"");
+      if(inp.value!==v) inp.value=v;
       inp.classList.remove("ok","bad","quiet");
       delete inp.dataset.t;
-      st.vals[i]=v; save();
+      clearTimeout(inp._wait);
+      state.sheets[s.id].vals[i]=v; save();
       evaluate(s,true);
-      if(v && isLetter){ var n=P.inputs[i+1]; if(n && n.classList.contains("letter")) n.focus(); }
-      else if(v && inp.classList.contains("ok")) focusNextEmpty(P,i);
-    });
-    content.addEventListener("focusin",function(e){
-      var inp=e.target; if(!inp.classList || !inp.classList.contains("ans")) return;
-      P.last=inp; if(inp.classList.contains("letter") || inp.dataset.num) inp.select();
+      if(v && !ready(inp)) inp._wait=setTimeout(function(){ force(s,inp); },WAIT);
+      else if(inp.classList.contains("ok")) focusNextEmpty(P,i);
     });
     content.addEventListener("focusout",function(e){
-      var inp=e.target; if(!inp.classList || !inp.classList.contains("ans")) return;
-      P.caret=inp.selectionStart;
-      if(inp.value && inp.dataset.t!=="1"){ inp.dataset.t="1"; evaluate(s,true); }
+      var inp=e.target; if(inp.classList && inp.classList.contains("ans")) force(s,inp);
     });
     content.addEventListener("keydown",function(e){
       var inp=e.target; if(!inp.classList || !inp.classList.contains("ans")) return;
-      var i=+inp.dataset.i, isLetter=inp.classList.contains("letter");
-      if(e.key==="Enter"){
-        e.preventDefault();
-        if(inp.value){ inp.dataset.t="1"; evaluate(s,true); }
-        var n=P.inputs[i+1]; if(n) n.focus();
-      }
-      else if(e.key==="Backspace" && isLetter && inp.value===""){ var p=P.inputs[i-1]; if(p && p.classList.contains("letter")){ e.preventDefault(); p.focus(); } }
+      if(e.key==="Enter"){ e.preventDefault(); force(s,inp); var n=P.inputs[+inp.dataset.i+1]; if(n) n.focus(); }
     });
 
     sec.querySelector(".regen").addEventListener("click",function(){ newData(s); save(); render(s,true); stars(); });
@@ -648,47 +508,6 @@ footer{text-align:center;color:var(--soft);font-size:15px;padding:0 16px 40px}
     sec.querySelector(".clear").addEventListener("click",function(){
       state.sheets[s.id].vals=[]; state.sheets[s.id].done=false; save(); render(s,false); stars();
     });
-
-    /* tastele pentru diacritice */
-    var bar=sec.querySelector(".diacr");
-    if(bar){
-      bar.addEventListener("pointerdown",function(e){ if(e.target.closest("button")) e.preventDefault(); });
-      bar.addEventListener("mousedown",function(e){ if(e.target.closest("button")) e.preventDefault(); });
-      bar.addEventListener("click",function(e){
-        var b=e.target.closest("button"); if(!b) return;
-        var ch=b.dataset.ch, inp=P.last;
-        if(!inp || !content.contains(inp)) inp=P.inputs.filter(function(i){ return i.value===""; })[0] || P.inputs[0];
-        if(!inp) return;
-        var wasActive=document.activeElement===inp;
-        inp.focus();
-        if(inp.classList.contains("letter")) inp.value=ch;
-        else {
-          var pos = wasActive && inp.selectionStart!=null ? inp.selectionStart : (P.caret!=null ? P.caret : inp.value.length);
-          pos=Math.min(pos,inp.value.length);
-          inp.value=inp.value.slice(0,pos)+ch+inp.value.slice(pos);
-          try{ inp.setSelectionRange(pos+1,pos+1); }catch(err){}
-        }
-        inp.dispatchEvent(new Event("input",{bubbles:true}));
-      });
-    }
-
-    /* propoziții: mută cuvintele între rând și grămadă; verificarea se face când toate cuvintele sunt puse */
-    if(s.id==="propozitii"){
-      content.addEventListener("click",function(e){
-        var chip=e.target.closest("button.chip"); if(!chip) return;
-        var box=chip.closest(".sent"), i=+box.dataset.i, st=state.sheets.propozitii, wi=+chip.dataset.w, wasIn=chip.classList.contains("in");
-        var placed=(st.vals[i]||[]).slice();
-        if(wasIn) placed.splice(placed.indexOf(wi),1); else placed.push(wi);
-        st.vals[i]=placed; save();
-        box.querySelector(".sent-live").innerHTML=sentLive(st.data.items[i],placed);
-        evaluate(s,true);
-        if(e.detail===0){
-          var next=box.querySelector(".bank button.chip") || box.querySelector(".line button.chip:last-child")
-                || box.querySelector('button.chip'+(wasIn?':not(.in)':'.in')+'[data-w="'+wi+'"]');
-          if(next) next.focus();
-        }
-      });
-    }
     render(s,false);
   });
 
